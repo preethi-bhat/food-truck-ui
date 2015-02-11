@@ -20,23 +20,53 @@ function populateTable() {
     // Empty content string
     var tableContent = '';
 
+   //alert('hello');
     // jQuery AJAX call for JSON
     $.getJSON( 'http://localhost:3001/car/results', function( data ) {
-    
-    	// Stick our user data array into a userlist variable in the global object
-    	userListData = data;
+    $('#carResults table tbody tr').remove()
+    	// // Stick our user data array into a userlist variable in the global object
+    	// userListData = data;
+     //    console.log(userListData);
+
+     //    var searchResults = data.results[0];
+     //    console.log(searchResults);
+     //    var solutionList = [];
+     //    solutionList = searchResults.results.searchSolutionList;
+     //    console.log(solutionList);
+     //    var pgood = solutionList[0].pgoods[0];
+     //    console.log(pgood);
+     var row = 0;
+        $.each(data.results, function(index, solution){
+            $.each(solution.pgoods, function(index, pgood) {
+                var tableContent = ""
+
+                row++;
+                var isOpaque = 'Y';
+                if(pgood.isOpaque == false) {
+                    isOpaque = 'N';
+                }
+                tableContent += '<tr class="item-' + row%2 + '">';
+                tableContent += '<td>' + pgood.carType + '</td>';
+                tableContent += '<td>' + pgood.carVendor + '</td>';
+                tableContent += '<td>' + pgood.price + '</td>';
+                tableContent += '<td>' + pgood.depositType +'</td>';
+                tableContent += '<td>' + isOpaque +'</td>'
+                tableContent += '</tr>';
+                $('#carResults table').last().append(tableContent);
+            })
+        })
 
         // For each item in our JSON, add a table row and cells to the content string
-        $.each(data.results, function(){
+      /*  $.each(data.results, function(){
             tableContent += '<tr>';
             tableContent += '<td>' + this.carType + '</td>';
             tableContent += '<td>' + this.carVendor + '</td>';
             tableContent += '<td>' + this.price + '</td>';
             tableContent += '</tr>';
-        });
+        });*/
 
         // Inject the whole content string into our existing HTML table
-        $('#carResults table tbody').html(tableContent);
+        //$('#carResults table tbody').html(tableContent);
     });
 };
 
