@@ -1,0 +1,73 @@
+extends layout
+
+block content
+    h1= title
+    
+
+    // Wrapper
+    #wrapper
+
+        // CAR SEARCH PARAMS
+        #carSearchParameters
+            h2 Car Search Parameters
+            p
+                strong Destination:
+                |  <span id=‘carDestination’>Houston, TX</span>
+                br
+                strong Pick up:
+                |  <span id=‘carPickUp’>3/1/2015</span>
+                br
+                strong Drop off:
+                |  <span id=‘carDropOff>3/2/2015</span>
+                br
+        // /CAR SEARCH PARAMS
+
+        // SEARCH CAR
+        #doSearch
+            fieldset
+                br
+                button#btnCarSearch Search for cars
+        // /SEARCH CAR
+        br
+        br
+
+        // PERFORMANCE
+        h2 Performance
+        #carResultsTime
+           
+
+
+        // CAR RESULTS
+        h2 Car Results
+        #carResults
+            table
+                thead
+                    th Car Type
+                    th Vendor
+                    th Price
+                tbody
+        // /CAR RESULTS
+
+        // GUIDING PRINCIPLES
+        h2 Guiding Principles
+        #guidingPrinciples
+            p.confirm
+                input(type="checkbox", name="decouple", checked="checked")
+                1 Separation of concerns
+                br
+                input(type="checkbox", name="growth", checked="checked")
+                2 Capacity scaling for 5 year growth
+                br
+                input(type="checkbox", name="deploy", checked="checked")
+                3 Rapid and continuous deployment
+                br
+                input(type="checkbox", name="speed", checked="checked")
+                4 High availability and super low latency
+                br
+                input(type="checkbox", name="debug", checked="checked")
+                5 Behavior monitoring 
+                br
+        // /GUIDING PRINCIPLES
+        
+
+    // /WRAPPER
