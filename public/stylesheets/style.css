@@ -43,7 +43,7 @@ a {
 		background:#CCC;
 	}
 		#carResults table th {
-			background:#EEE;
+			background:#aaaaaa;
 			font-weight:600;
 			padding:10px 20px;
 			text-align:center;
@@ -52,6 +52,9 @@ a {
 			padding:0; margin:0;
 			border-collapse:collapse;
 			border-spacing:0px;
+		}
+		#carResults table tr.item-0 td {
+			background-color: #eeeeee;
 		}
 			#carResults table td {
 				background:#FFF;
