@@ -24,17 +24,6 @@ function populateTable() {
     // jQuery AJAX call for JSON
     $.getJSON( 'http://localhost:3001/car/results', function( data ) {
     $('#carResults table tbody tr').remove()
-    	// // Stick our user data array into a userlist variable in the global object
-    	// userListData = data;
-     //    console.log(userListData);
-
-     //    var searchResults = data.results[0];
-     //    console.log(searchResults);
-     //    var solutionList = [];
-     //    solutionList = searchResults.results.searchSolutionList;
-     //    console.log(solutionList);
-     //    var pgood = solutionList[0].pgoods[0];
-     //    console.log(pgood);
      var row = 0;
         $.each(data.results, function(index, solution){
             $.each(solution.pgoods, function(index, pgood) {
@@ -55,25 +44,12 @@ function populateTable() {
                 $('#carResults table').last().append(tableContent);
             })
         })
-
-        // For each item in our JSON, add a table row and cells to the content string
-      /*  $.each(data.results, function(){
-            tableContent += '<tr>';
-            tableContent += '<td>' + this.carType + '</td>';
-            tableContent += '<td>' + this.carVendor + '</td>';
-            tableContent += '<td>' + this.price + '</td>';
-            tableContent += '</tr>';
-        });*/
-
-        // Inject the whole content string into our existing HTML table
-        //$('#carResults table tbody').html(tableContent);
     });
 };
 
 
 
 function doCarSearch(event) {
-    var start = new Date().getTime();
     event.preventDefault();
 
 
@@ -84,15 +60,16 @@ function doCarSearch(event) {
         'checkout': '3/2/2015'
     }
 
-
+    var start = new Date().getTime();
     $.ajax({
         type: 'POST',
         data: carSearchParams,
         url: 'http://localhost:3001/car/search',
         dataType: 'JSON'
     });
-    populateTable();
     var executionTime = new Date().getTime() - start;
+
+    populateTable();
     $('#carResultsTime').text('Execution time (ms) = ' + executionTime);
 }
 
