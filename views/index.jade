@@ -31,6 +31,17 @@ block content
         br
         br
 
+        // TURN ON/OFF SERVICES
+        h2 Configure Services
+        #serviceConfig
+            p.confirm
+                input(type="checkbox", id="winnerselection", checked="checked")
+                1 Enable winner selection
+                br
+                
+        // /TURN ON/OFF SERVICES
+
+
         // PERFORMANCE
         h2 Performance
         #carResultsTime
@@ -54,7 +65,7 @@ block content
         h2 Guiding Principles
         #guidingPrinciples
             p.confirm
-                input(type="checkbox", name="decouple", checked="checked")
+                input(type="checkbox", id="decouple", checked="checked")
                 1 Separation of concerns
                 br
                 input(type="checkbox", name="growth", checked="checked")
