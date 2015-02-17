@@ -39,7 +39,8 @@ function populateTable(data) {
                         tableContent += '<td>' + pgood.carVendor + '</td>';
                         tableContent += '<td>' + pgood.price + '</td>';
                         tableContent += '<td>' + pgood.depositType +'</td>';
-                        tableContent += '<td>' + isOpaque +'</td>'
+                        tableContent += '<td>' + pgood.isOpaque +'</td>';
+                        tableContent += '<td>' + pgood.markupAllowed +'</td>'
                         tableContent += '</tr>';
                         $('#carResults table').last().append(tableContent);
                     }
@@ -57,7 +58,8 @@ function populateTable(data) {
                         tableContent += '<td>' + pgood.carVendor + '</td>';
                         tableContent += '<td>' + pgood.price + '</td>';
                         tableContent += '<td>' + pgood.depositType +'</td>';
-                        tableContent += '<td>' + isOpaque +'</td>'
+                        tableContent += '<td>' + pgood.isOpaque +'</td>';
+                        tableContent += '<td>' + pgood.markupAllowed +'</td>'
                         tableContent += '</tr>';
                         $('#carResults table').last().append(tableContent);
 
