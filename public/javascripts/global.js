@@ -19,52 +19,28 @@ function populateTable(data) {
 
     // Empty content string
     var tableContent = '';
-    var ckb = $("#winnerselection").is(':checked');
 
     $('#carResults table tbody tr').remove()
      var row = 0;
         $.each(data.results, function(index, solution){
             $.each(solution.pgoods, function(index, pgood) {
-                if (ckb) {
-                    if (pgood.isWinner) {
-                        var tableContent = ""
+                    
+                var tableContent = ""
 
-                        row++;
-                        var isOpaque = 'Y';
-                        if(pgood.isOpaque == false) {
-                            isOpaque = 'N';
-                        }
-                        tableContent += '<tr class="item-' + row%2 + '">';
-                        tableContent += '<td>' + pgood.carType + '</td>';
-                        tableContent += '<td>' + pgood.carVendor + '</td>';
-                        tableContent += '<td>' + pgood.price + '</td>';
-                        tableContent += '<td>' + pgood.depositType +'</td>';
-                        tableContent += '<td>' + pgood.isOpaque +'</td>';
-                        tableContent += '<td>' + pgood.markupAllowed +'</td>'
-                        tableContent += '</tr>';
-                        $('#carResults table').last().append(tableContent);
-                    }
+                row++;
+                var isOpaque = 'Y';
+                if(pgood.isOpaque == false) {
+                    isOpaque = 'N';
                 }
-                else {
-                        var tableContent = ""
-
-                        row++;
-                        var isOpaque = 'Y';
-                        if(pgood.isOpaque == false) {
-                            isOpaque = 'N';
-                        }
-                        tableContent += '<tr class="item-' + row%2 + '">';
-                        tableContent += '<td>' + pgood.carType + '</td>';
-                        tableContent += '<td>' + pgood.carVendor + '</td>';
-                        tableContent += '<td>' + pgood.price + '</td>';
-                        tableContent += '<td>' + pgood.depositType +'</td>';
-                        tableContent += '<td>' + pgood.isOpaque +'</td>';
-                        tableContent += '<td>' + pgood.markupAllowed +'</td>'
-                        tableContent += '</tr>';
-                        $('#carResults table').last().append(tableContent);
-
-                };
-                
+                tableContent += '<tr class="item-' + row%2 + '">';
+                tableContent += '<td>' + pgood.carType + '</td>';
+                tableContent += '<td>' + pgood.isOpaque + '</td>';
+                tableContent += '<td>' + pgood.price + '</td>';
+                tableContent += '<td>' + pgood.depositType +'</td>';
+                tableContent += '<td>' + pgood.carVendor +'</td>';
+                tableContent += '<td>' + pgood.markupAllowed +'</td>'
+                tableContent += '</tr>';
+                $('#carResults table').last().append(tableContent);
             })
             $('#carResults table').last().append('<tr class="divider"><td> </td></tr>');
         })
