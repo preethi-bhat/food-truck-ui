@@ -38,7 +38,8 @@ function populateTable(data) {
                 tableContent += '<td>' + pgood.price + '</td>';
                 tableContent += '<td>' + pgood.depositType +'</td>';
                 tableContent += '<td>' + pgood.carVendor +'</td>';
-                tableContent += '<td>' + pgood.markupAllowed +'</td>'
+                tableContent += '<td>' + pgood.markupAllowed +'</td>';
+                tableContent += '<td>' + pgood.markup +'</td>';
                 tableContent += '</tr>';
                 $('#carResults table').last().append(tableContent);
             })
