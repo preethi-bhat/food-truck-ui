@@ -14,5 +14,5 @@ EXPOSE 3000
 # change current workdir to app
 WORKDIR /root/app
 
-# run the app
-CMD npm start
+# install all dependencies and start server
+CMD npm install && npm start 3000
