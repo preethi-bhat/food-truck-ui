@@ -129,7 +129,7 @@ function doFoodSearchNearMe(event) {
     }
 
     $.ajax({
-        url : 'http://localhost:3001/food/localresults',
+        url : 'http://biz-service.herokuapp.com/food/localresults',
         type: "POST",
         data : foodSearchParams,
         success: function(data, textStatus, jqXHR)
