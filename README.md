@@ -1,3 +1,3 @@
-# test-webapp
+# User interface for food truck finder
 
-Testing a simple web app using node.js
+This is the user interface for the food truck finder

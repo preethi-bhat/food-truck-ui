@@ -2,16 +2,44 @@ extends layout
 
 block content
     h1= title
-    
 
     // Wrapper
     #wrapper
 
-        // HEADER
-        #testheader
-            h2 Node application index page
-        // /HEADER
+        // FOOD TRUCK SEARCH PARAMS
+        #foodTruckParameters
+            h2 What would you like to eat?
+            p
+                input(type="text", name="foodTruckSearchParams", id="foodTruckSearchParams")
+        // /FOOD TRUCK SEARCH PARAMS
 
+        
+        // SEARCH FOOD TRUCKS NEAR ME
+        #doSearchNearMe
+            fieldset
+                button#btnFoodSearchNearMe Search
+                br
+                br
+        // /SEARCH FOOD TRUCKS NEAR ME
+           
+
+        #mapholder
+        
+        // FOOD TRUCK RESULTS
+        h2 Results
+        #foodTruckResults
+            table
+                thead
+                    th Cuisine
+                    th Location
+                    th Name
+                    th Miles from me
+                tbody
+        // /FOOD TRUCK RESULTS
+        
+        
+        
+        #footer
         
 
     // /WRAPPER
