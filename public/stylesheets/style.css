@@ -57,20 +57,24 @@ fieldset {
 	table-layout: fixed;
     width: 750px;
 }
+
 #foodTruckResults table th {
 	background:#aaaaaa;
 	font-weight:600;
 	padding:10px 20px;
 	text-align:center;
 }
+
 #foodTruckResults table tbody {
 	padding:0; margin:0;
 	border-collapse:collapse;
 	border-spacing:0px;
 }
+
 #foodTruckResults table tr.item-0 td {
 	background-color: #eeeeee;
 }
+
 #foodTruckResults table td {
 	background:#FFF;
 	padding:5px 10px;

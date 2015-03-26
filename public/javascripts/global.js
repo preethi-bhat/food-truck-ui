@@ -8,9 +8,9 @@ $(document).ready(function() {
     // Register button click
     $('#btnFoodSearchNearMe').on('click', doFoodSearchNearMe);
     $('#btnFoodSearchNearAddr').on('click', doFoodSearchNearAddr);    
-
 });
 
+// Show the user's position on the map
 function showPosition(position) {
     lat = position.coords.latitude;
     lon = position.coords.longitude;
@@ -30,6 +30,7 @@ function showPosition(position) {
     var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
 }
 
+// Add markers on the map corresponding to food trucks
 function addMarkers(userLatitude, userLongitude, foodTrucks) {
     var locations = [
     	  ['Your location', userLatitude, userLongitude]
@@ -59,6 +60,7 @@ function addMarkers(userLatitude, userLongitude, foodTrucks) {
             map: map
         });
 
+        // When the marker is clicked, show the truck applicant name
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
               infowindow.setContent(locations[i][0]);
@@ -88,18 +90,17 @@ function initialize() {
     geocoder = new google.maps.Geocoder();
 }
 
-$("#foodTruckSearchParams" ).keydown(function() {
+// Send request as and when we get input from the user
+$("#foodTruckSearchParams").on('input', function() {
   	var foodTruckSearchParamFromUser = $("#foodTruckSearchParams").val();
   	doFoodSearchNearMe();
 });
 
-
-$("#foodTruckSearchParamsAddr" ).keydown(function() {
+// Send request as and when we get input from the user
+$("#foodTruckSearchParamsAddr").on('input', function() {
   	var foodTruckSearchParamFromUser = $("#foodTruckSearchParamsAddr").val();
   	doFoodSearchNearAddr();
 });
-
-    
 
 // Fill table with data
 function populateTable(data) {
@@ -125,7 +126,7 @@ function populateTable(data) {
         })
 };
 
-
+// Function to find food trucks near user's current location
 function doFoodSearchNearMe(event) {
     var foodTruckSearchParamFromUser = $("#foodTruckSearchParams").val();
     
@@ -137,8 +138,8 @@ function doFoodSearchNearMe(event) {
     }
 
     $.ajax({
-        url : 'https://biz-service.herokuapp.com/food/localresults',
-        //url : 'http://localhost:3001/food/localresults',
+        //url : 'https://biz-service.herokuapp.com/food/localresults',
+        url : 'http://localhost:3001/food/localresults',
         type: "POST",
         data : foodSearchParams,
         success: function(data, textStatus, jqXHR)
@@ -154,6 +155,7 @@ function doFoodSearchNearMe(event) {
     });    
 };
 
+// Function to find food trucks near user specified location
 function doFoodSearchNearAddr(event) {
     var foodTruckSearchParamFromUser = $("#foodTruckSearchParamsAddr").val();
     
@@ -163,8 +165,8 @@ function doFoodSearchNearAddr(event) {
     }
 
     $.ajax({
-        url : 'https://biz-service.herokuapp.com/food/addressresults',
-        //url : 'http://localhost:3001/food/addressresults',
+        //url : 'https://biz-service.herokuapp.com/food/addressresults',
+        url : 'http://localhost:3001/food/addressresults',
         type: "POST",
         data : foodSearchParams,
         success: function(data, textStatus, jqXHR)
