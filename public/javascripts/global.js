@@ -138,8 +138,8 @@ function doFoodSearchNearMe(event) {
     }
 
     $.ajax({
-        //url : 'https://biz-service.herokuapp.com/food/localresults',
-        url : 'http://localhost:3001/food/localresults',
+        url : 'https://biz-service.herokuapp.com/food/localresults',
+        //url : 'http://localhost:3001/food/localresults',
         type: "POST",
         data : foodSearchParams,
         success: function(data, textStatus, jqXHR)
@@ -165,8 +165,8 @@ function doFoodSearchNearAddr(event) {
     }
 
     $.ajax({
-        //url : 'https://biz-service.herokuapp.com/food/addressresults',
-        url : 'http://localhost:3001/food/addressresults',
+        url : 'https://biz-service.herokuapp.com/food/addressresults',
+        //url : 'http://localhost:3001/food/addressresults',
         type: "POST",
         data : foodSearchParams,
         success: function(data, textStatus, jqXHR)
