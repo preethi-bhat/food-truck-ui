@@ -6,7 +6,9 @@ var geocoder;
 $(document).ready(function() {
 
     // Register button click
-    $('#btnFoodSearchNearMe').on('click', doFoodSearchNearMe);    
+    $('#btnFoodSearchNearMe').on('click', doFoodSearchNearMe);
+    $('#btnFoodSearchNearAddr').on('click', doFoodSearchNearAddr);    
+
 });
 
 function showPosition(position) {
@@ -33,7 +35,7 @@ function addMarkers(userLatitude, userLongitude, foodTrucks) {
     	  ['Your location', userLatitude, userLongitude]
         ];
         
-    $.each(foodTrucks, function(index, solution){
+    $.each(foodTrucks.results, function(index, solution){
         var foodTruckLocation = [];
         foodTruckLocation.push(solution.applicant)
         foodTruckLocation.push(solution.latitude)
@@ -91,6 +93,14 @@ $("#foodTruckSearchParams" ).keydown(function() {
   	console.log(foodTruckSearchParamFromUser);
   	doFoodSearchNearMe();
 });
+
+/*
+$("#foodTruckSearchParamsAddr" ).keydown(function() {
+  	var foodTruckSearchParamFromUser = $("#foodTruckSearchParamsAddr").val();
+  	console.log(foodTruckSearchParamFromUser);
+  	doFoodSearchNearAddr();
+});
+*/
     
 
 // Fill table with data
@@ -101,7 +111,7 @@ function populateTable(data) {
 
     $('#foodTruckResults table tbody tr').remove()
      var row = 0;
-        $.each(data, function(index, solution){
+        $.each(data.results, function(index, solution){
         
                 var tableContent = ""
 
@@ -129,7 +139,8 @@ function doFoodSearchNearMe(event) {
     }
 
     $.ajax({
-        url : 'https://biz-service.herokuapp.com/food/localresults',
+        //url : 'https://biz-service.herokuapp.com/food/localresults',
+        url : 'http://localhost:3001/food/localresults',
         type: "POST",
         data : foodSearchParams,
         success: function(data, textStatus, jqXHR)
@@ -142,6 +153,31 @@ function doFoodSearchNearMe(event) {
         {
      
         }
-    });
+    });    
+};
+
+function doFoodSearchNearAddr(event) {
+    var foodTruckSearchParamFromUser = $("#foodTruckSearchParamsAddr").val();
     
+    // If it is, compile all user info into one object
+    var foodSearchParams = {
+        'searchQuery': foodTruckSearchParamFromUser
+    }
+
+    $.ajax({
+        url : 'https://biz-service.herokuapp.com/food/addressresults',
+        type: "POST",
+        data : foodSearchParams,
+        success: function(data, textStatus, jqXHR)
+        {
+            //data - response from server
+            populateTable(data);
+            console.log(data.mapLat, data.mapLng);
+            addMarkers(data.mapLat, data.mapLng, data)
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+     
+        }
+    });    
 };

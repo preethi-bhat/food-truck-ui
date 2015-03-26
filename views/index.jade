@@ -6,7 +6,7 @@ block content
     // Wrapper
     #wrapper
 
-        // FOOD TRUCK SEARCH PARAMS
+        // FOOD TRUCK SEARCH PARAMS BASED ON CURRENT LOCATION
         #foodTruckParameters
             h2 What would you like to eat?
             p
@@ -21,6 +21,22 @@ block content
                 br
                 br
         // /SEARCH FOOD TRUCKS NEAR ME
+        
+        // FOOD TRUCK SEARCH PARAMS BASED ON ADDRESS
+        #foodTruckParametersAddr
+            h2 Where in San Francisco?
+            p
+                input(type="text", name="foodTruckSearchParamsAddr", id="foodTruckSearchParamsAddr")
+        // /FOOD TRUCK SEARCH PARAMS BASED ON ADDRESS
+
+        
+        // SEARCH FOOD TRUCKS NEAR ADDRESS
+        #doSearchNearAddr
+            fieldset
+                button#btnFoodSearchNearAddr Search
+                br
+                br
+        // /SEARCH FOOD TRUCKS NEAR ADDRESS
            
 
         #mapholder

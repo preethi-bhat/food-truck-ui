@@ -33,7 +33,7 @@ fieldset {
 	padding:0; margin:0;
 }
 
-#doSearchNearMe button {
+#doSearchNearMe button,  #doSearchNearAddr button{
   -webkit-border-radius: 6;
   -moz-border-radius: 6;
   border-radius: 6px;
