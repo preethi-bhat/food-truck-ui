@@ -90,17 +90,15 @@ function initialize() {
 
 $("#foodTruckSearchParams" ).keydown(function() {
   	var foodTruckSearchParamFromUser = $("#foodTruckSearchParams").val();
-  	//console.log(foodTruckSearchParamFromUser);
   	doFoodSearchNearMe();
 });
 
-/*
+
 $("#foodTruckSearchParamsAddr" ).keydown(function() {
   	var foodTruckSearchParamFromUser = $("#foodTruckSearchParamsAddr").val();
-  	console.log(foodTruckSearchParamFromUser);
   	doFoodSearchNearAddr();
 });
-*/
+
     
 
 // Fill table with data
