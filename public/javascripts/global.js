@@ -90,7 +90,7 @@ function initialize() {
 
 $("#foodTruckSearchParams" ).keydown(function() {
   	var foodTruckSearchParamFromUser = $("#foodTruckSearchParams").val();
-  	console.log(foodTruckSearchParamFromUser);
+  	//console.log(foodTruckSearchParamFromUser);
   	doFoodSearchNearMe();
 });
 
@@ -165,7 +165,8 @@ function doFoodSearchNearAddr(event) {
     }
 
     $.ajax({
-        url : 'https://biz-service.herokuapp.com/food/addressresults',
+        //url : 'https://biz-service.herokuapp.com/food/addressresults',
+        url : 'http://localhost:3001/food/addressresults',
         type: "POST",
         data : foodSearchParams,
         success: function(data, textStatus, jqXHR)
