@@ -90,6 +90,11 @@ function initialize() {
     geocoder = new google.maps.Geocoder();
 }
 
+/**
+// Commenting the autocomplete functionality as there are a few bugs
+// It would be better to introduce a delay so that the number of calls to the server 
+// is manageable. 
+
 // Send request as and when we get input from the user
 $("#foodTruckSearchParams").on('input', function() {
   	var foodTruckSearchParamFromUser = $("#foodTruckSearchParams").val();
@@ -101,6 +106,7 @@ $("#foodTruckSearchParamsAddr").on('input', function() {
   	var foodTruckSearchParamFromUser = $("#foodTruckSearchParamsAddr").val();
   	doFoodSearchNearAddr();
 });
+*/
 
 // Fill table with data
 function populateTable(data) {
