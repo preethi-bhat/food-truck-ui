@@ -1,16 +1,21 @@
 body {
   padding: 30px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color:#ededed
 }
 
 h2 {
+	border:0;
+	padding:0; margin:0;	
+}
+
+h3 {
     color:white
 }
 
 input {
     width: 400px;
-    height: 30px;
+    height: 20px;
 }
 
 a {
@@ -25,7 +30,7 @@ a {
 }
 
 #footer {
-	height:100px
+	height:80px
 }
 
 fieldset {
@@ -39,12 +44,16 @@ fieldset {
   border-radius: 6px;
   font-family: Arial;
   color: #ffffff;
-  font-size: 15px;
+  font-size: 14px;
   background: #c71f14;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-	  
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;  
 }
+
+#doSearchNearMe,  #doSearchNearAddr {
+  height:30px;
+}
+
 
 #foodTruckResults {
 	margin:0 0 30px 0;

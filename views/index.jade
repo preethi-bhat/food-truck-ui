@@ -1,16 +1,15 @@
 extends layout
 
 block content
-    h1= title
+    h2= title
 
     // Wrapper
     #wrapper
 
         // FOOD TRUCK SEARCH PARAMS BASED ON CURRENT LOCATION
         #foodTruckParameters
-            h2 What would you like to eat?
-            p
-                input(type="text", name="foodTruckSearchParams", id="foodTruckSearchParams")
+            h3 What would you like to eat?
+            input(type="text", name="foodTruckSearchParams", id="foodTruckSearchParams")
         // /FOOD TRUCK SEARCH PARAMS
 
         
@@ -24,9 +23,8 @@ block content
         
         // FOOD TRUCK SEARCH PARAMS BASED ON ADDRESS
         #foodTruckParametersAddr
-            h2 Where in San Francisco?
-            p
-                input(type="text", name="foodTruckSearchParamsAddr", id="foodTruckSearchParamsAddr")
+            h3 Where in San Francisco?
+            input(type="text", name="foodTruckSearchParamsAddr", id="foodTruckSearchParamsAddr")
         // /FOOD TRUCK SEARCH PARAMS BASED ON ADDRESS
 
         
@@ -42,7 +40,7 @@ block content
         #mapholder
         
         // FOOD TRUCK RESULTS
-        h2 Results
+        h3 Results
         #foodTruckResults
             table
                 thead
